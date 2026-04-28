@@ -65,24 +65,42 @@ export default function HomePage() {
         </section>
 
         <Section subtitle="LumkoMDX removes it." title="Healthcare data has always required a tradeoff.">
-          <div className="grid gap-10 lg:grid-cols-[1fr_120px_1fr]">
-            <div className="rounded-xl border border-muted-gray bg-white p-10">
-              <p className="text-lg font-semibold text-charcoal">The old reality</p>
-              <ul className="mt-6 space-y-5 text-charcoal/78">
-                <li><strong className="text-charcoal">Fragmented systems</strong><br />Data siloed across institutions and technologies.</li>
-                <li><strong className="text-charcoal">Risk in sharing</strong><br />Identity, exposure, compliance burden, and breach risk.</li>
-                <li><strong className="text-charcoal">Delayed insight</strong><br />Slow access to the data needed to improve outcomes.</li>
+          <div className="grid items-stretch gap-0 lg:grid-cols-[1fr_1px_1.3fr]">
+            {/* Left: The old reality */}
+            <div className="rounded-l-xl border border-r-0 border-muted-gray bg-soft-gray px-8 py-10">
+              <p className="text-sm font-semibold text-charcoal/50">The old reality</p>
+              <ul className="mt-6 space-y-6">
+                <li>
+                  <p className="text-base font-semibold text-charcoal">Fragmented systems</p>
+                  <p className="mt-1 text-sm text-charcoal/60">Data siloed across institutions and technologies.</p>
+                </li>
+                <li>
+                  <p className="text-base font-semibold text-charcoal">Risk in sharing</p>
+                  <p className="mt-1 text-sm text-charcoal/60">Identity, exposure, compliance burden, and breach risk.</p>
+                </li>
+                <li>
+                  <p className="text-base font-semibold text-charcoal">Delayed insight</p>
+                  <p className="mt-1 text-sm text-charcoal/60">Slow access to the data needed to improve outcomes.</p>
+                </li>
               </ul>
             </div>
-            <div className="hidden items-center justify-center lg:flex">
-              <span className="text-5xl text-charcoal/25">→</span>
+
+            {/* Center: threshold */}
+            <div className="hidden relative lg:flex">
+              <div className="mx-auto h-full w-px bg-gradient-to-b from-transparent via-blue/30 to-transparent" />
+              <span className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 whitespace-nowrap rounded-full border border-blue/20 bg-white px-3 py-1 text-[11px] font-semibold tracking-wide text-blue shadow-sm">
+                Tradeoff removed
+              </span>
             </div>
-            <div className="rounded-xl border border-blue/20 bg-[#f8fafd] p-10">
-              <p className="text-lg font-semibold text-blue">The new reality</p>
-              <ul className="mt-6 space-y-6 text-charcoal">
-                <li className="text-3xl leading-snug">Data can be used where it exists.</li>
-                <li className="text-3xl leading-snug">Identity never enters the system.</li>
+
+            {/* Right: The new reality */}
+            <div className="rounded-r-xl border border-l-0 border-blue/15 bg-[#f8fafd] px-10 py-12">
+              <p className="text-sm font-semibold text-blue">The new reality</p>
+              <ul className="mt-8 space-y-8">
+                <li className="text-[28px] leading-snug text-charcoal">Data can be used where it exists.</li>
+                <li className="text-[28px] leading-snug text-charcoal">Identity never enters the system.</li>
               </ul>
+              <p className="mt-8 text-base text-charcoal/55">Access and compliance now coexist by design.</p>
             </div>
           </div>
         </Section>
