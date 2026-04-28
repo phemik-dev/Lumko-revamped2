@@ -65,7 +65,7 @@ export default function TermsOfUsePage() {
             <h1 className="text-4xl font-semibold tracking-tight text-charcoal">
               Terms of Use
             </h1>
-            <p className="mt-4 text-base text-charcoal/60">
+            <p className="mt-4 text-base text-charcoal/70">
               Effective date: 1 January 2026
             </p>
             <div className="mt-12 space-y-12">

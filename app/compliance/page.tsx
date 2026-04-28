@@ -61,7 +61,7 @@ export default function CompliancePage() {
             <h1 className="text-4xl font-semibold tracking-tight text-charcoal">
               Compliance
             </h1>
-            <p className="mt-4 text-base text-charcoal/60">
+            <p className="mt-4 text-base text-charcoal/70">
               How LumkoMDX addresses regulatory and security requirements through architecture.
             </p>
             <div className="mt-12 space-y-16">

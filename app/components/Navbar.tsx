@@ -227,7 +227,7 @@ export default function Navbar() {
               type="button"
             >
               {link.label}
-              <span className="text-xs text-charcoal/60">▾</span>
+              <span className="text-xs text-charcoal/70">▾</span>
             </button>
           ))}
         </nav>

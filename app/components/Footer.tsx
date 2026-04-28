@@ -102,7 +102,7 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-muted-gray py-4">
-        <div className="mx-auto flex w-full max-w-[1240px] justify-end gap-10 px-6 text-sm text-charcoal/60">
+        <div className="mx-auto flex w-full max-w-[1240px] justify-end gap-10 px-6 text-sm text-charcoal/70">
           {bottomLinks.map((link) => (
             <Link
               className="transition-colors hover:text-teal"

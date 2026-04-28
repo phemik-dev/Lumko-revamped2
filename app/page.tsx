@@ -179,7 +179,7 @@ export default function HomePage() {
                 Request demo
               </Button>
             </div>
-            <p className="mt-4 text-sm text-charcoal/60">No files. No identity transfer.</p>
+            <p className="mt-4 text-sm text-charcoal/70">No files. No identity transfer.</p>
           </div>
         </section>
       </main>

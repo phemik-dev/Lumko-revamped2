@@ -11,7 +11,7 @@ const config: Config = {
         "muted-gray": "#dce3ea",
         gold: "#b68a2f",
         blue: "#1f5d99",
-        teal: "#1f8a8a"
+        teal: "#1b8080"
       },
       fontFamily: {
         sans: ["Inter", "system-ui", "-apple-system", "Segoe UI", "Roboto", "sans-serif"]
