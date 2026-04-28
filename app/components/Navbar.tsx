@@ -139,6 +139,15 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-muted-gray bg-white/95 backdrop-blur">
+      <div className="mx-auto flex w-full max-w-[1380px] items-center justify-between px-8 py-4">
+        <p className="text-[24px] leading-none font-semibold tracking-tight text-charcoal sm:text-[22px]">
+          <span className="text-charcoal">Lumko</span>
+          <span className="text-teal">MDX</span>
+        </p>
+        <nav className="hidden items-center gap-12 lg:flex">
+          {links.map((link) => (
+            <button
+              className="flex items-center gap-2 text-xs font-medium text-charcoal"
       <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-6 py-5">
         <p className="text-[48px] leading-none font-semibold tracking-tight text-charcoal sm:text-[42px]">
           <span className="text-charcoal">Lumko</span>
@@ -165,6 +174,8 @@ export default function Navbar() {
 
       {openMenu && (
         <div className="hidden border-t border-muted-gray bg-white lg:block" onMouseLeave={() => setOpenMenu(null)}>
+          <div className="mx-auto w-full max-w-[1380px] px-8 py-8">
+            <div className="grid grid-cols-[1fr_1fr_1fr_1fr_280px] gap-10 border-b border-muted-gray pb-7">
           <div className="mx-auto w-full max-w-[1240px] px-6 py-6">
             <div className="grid grid-cols-[1fr_1fr_1fr_1fr_280px] gap-7 border-b border-muted-gray pb-7">
               {primaryColumns.map((col) => (
@@ -172,6 +183,8 @@ export default function Navbar() {
                   <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
                   {col.items.map(([title, desc]) => (
                     <div key={title}>
+                      <p className="text-xs font-medium text-charcoal">{title}</p>
+                      <p className="mt-1 text-xs text-charcoal/70">{desc}</p>
                       <p className="text-sm font-semibold text-charcoal">{title}</p>
                       <p className="mt-1 text-sm text-charcoal/70">{desc}</p>
                     </div>
@@ -179,6 +192,8 @@ export default function Navbar() {
                 </div>
               ))}
               <div className="rounded-lg bg-[#eaf4f8] p-7">
+                <p className="text-[20px] font-medium leading-tight text-charcoal">See the platform in action.</p>
+                <p className="mt-4 text-xs text-charcoal/75">Explore a sample clinical cohort in minutes.</p>
                 <p className="text-2xl font-medium leading-tight text-charcoal">See the platform in action.</p>
                 <p className="mt-4 text-sm text-charcoal/75">Explore a sample clinical cohort in minutes.</p>
                 <div className="mt-6">
@@ -187,6 +202,9 @@ export default function Navbar() {
               </div>
             </div>
 
+            <div className="space-y-8 pt-8">
+              {lowerRows.map((row) => (
+                <div className="grid grid-cols-[1fr_1fr_1fr_300px] gap-10" key={row.cta[0]}>
             <div className="space-y-6 pt-7">
               {lowerRows.map((row) => (
                 <div className="grid grid-cols-[1fr_1fr_1fr_280px] gap-7" key={row.cta[0]}>
@@ -195,6 +213,8 @@ export default function Navbar() {
                       <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
                       {col.items.map(([title, desc]) => (
                         <div key={title}>
+                          <p className="text-xs font-medium text-charcoal">{title}</p>
+                          <p className="mt-1 text-xs text-charcoal/70">{desc}</p>
                           <p className="text-sm font-semibold text-charcoal">{title}</p>
                           <p className="mt-1 text-sm text-charcoal/70">{desc}</p>
                         </div>
@@ -202,6 +222,7 @@ export default function Navbar() {
                     </div>
                   ))}
                   <div className="rounded-lg bg-[#f8f1df] p-7">
+                    <p className="text-[20px] font-medium leading-tight text-charcoal">{row.cta[0]}</p>
                     <p className="text-2xl font-medium leading-tight text-charcoal">{row.cta[0]}</p>
                     <div className="mt-6">
                       <Button href="#demo" variant="primary">
