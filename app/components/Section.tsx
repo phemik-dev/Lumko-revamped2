@@ -3,15 +3,20 @@ import type { ReactNode } from "react";
 type SectionProps = {
   id?: string;
   title: string;
+  subtitle?: string;
   children: ReactNode;
+  tone?: "white" | "soft";
 };
 
-export default function Section({ id, title, children }: SectionProps) {
+export default function Section({ id, title, subtitle, children, tone = "white" }: SectionProps) {
   return (
-    <section id={id} className="border-b border-muted-gray bg-white">
-      <div className="mx-auto w-full max-w-6xl px-6 py-16 sm:py-20">
-        <h2 className="text-2xl font-semibold tracking-tight text-charcoal sm:text-3xl">{title}</h2>
-        <div className="mt-6 max-w-3xl text-base leading-relaxed text-charcoal/80 sm:text-lg">{children}</div>
+    <section className={`${tone === "soft" ? "bg-soft-gray" : "bg-white"} border-b border-muted-gray`} id={id}>
+      <div className="mx-auto w-full max-w-[1240px] px-6 py-16 sm:py-20">
+        <div className="mx-auto max-w-4xl text-center">
+          <h2 className="text-4xl font-semibold tracking-tight text-charcoal">{title}</h2>
+          {subtitle && <p className="mt-3 text-xl text-teal">{subtitle}</p>}
+        </div>
+        <div className="mt-10">{children}</div>
       </div>
     </section>
   );
