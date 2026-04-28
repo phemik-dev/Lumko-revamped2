@@ -44,8 +44,8 @@ export default function HomePage() {
       <Navbar />
       <main>
         <section className="border-b border-muted-gray bg-white">
-          <div className="mx-auto grid w-full max-w-[1240px] gap-12 px-8 py-[140px] lg:grid-cols-2 lg:items-center">
-            <div>
+          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-8 py-[120px] lg:grid-cols-[0.9fr_1.1fr]">
+            <div className="max-w-[620px]">
               <h1 className="text-[56px] leading-[1.18] font-medium tracking-tight text-charcoal">
                 The infrastructure that <span className="text-teal">unlocks the power</span> of healthcare data while <span className="text-teal">protecting</span> what matters most
               </h1>
