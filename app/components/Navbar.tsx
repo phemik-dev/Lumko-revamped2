@@ -1,6 +1,23 @@
 "use client";
 
 import { useState } from "react";
+import {
+  Layout,
+  Puzzle,
+  Layers,
+  Shield,
+  Users,
+  Target,
+  Building2,
+  Code2,
+  Plug,
+  BookOpen,
+  GraduationCap,
+  BadgeCheck,
+  TrendingUp,
+  Info,
+  type LucideIcon,
+} from "lucide-react";
 import Button from "./Button";
 
 type MenuKey = "product" | "solutions" | "developers" | "resources" | "company";
@@ -13,13 +30,14 @@ const links: { key: MenuKey; label: string }[] = [
   { key: "company", label: "Company" }
 ];
 
-type PanelColumn = { heading: string; items: string[][] };
+type PanelColumn = { heading: string; icon: LucideIcon; items: string[][] };
 
 const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: string; body: string; button: string; bg: string } }> = {
   product: {
     columns: [
       {
         heading: "Platform",
+        icon: Layout,
         items: [
           ["Overview", "Why LumkoMDX is built for this moment"],
           ["Why it exists", "The problem of fragmented, risk-heavy data"],
@@ -27,6 +45,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Core Modules",
+        icon: Puzzle,
         items: [
           ["Cohort Browser", "Explore patient groups without exposing identity"],
           ["Insight Studio", "Ask clinical questions and get answers"],
@@ -36,6 +55,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Architecture",
+        icon: Layers,
         items: [
           ["Three-Boundary Model", "Identity, orchestration, and insight—separated by design"],
           ["Data Flow", "How data moves without exposure"],
@@ -44,6 +64,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Trust & Compliance",
+        icon: Shield,
         items: [
           ["POPIA Compliance", "Built for South African regulation"],
           ["Security Model", "Zero-trust, never-identity architecture"],
@@ -62,6 +83,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
     columns: [
       {
         heading: "By Role",
+        icon: Users,
         items: [
           ["Clinicians", "Faster cohort discovery, safer collaboration"],
           ["Researchers", "Compliant access to population insights"],
@@ -70,6 +92,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "By Use Case",
+        icon: Target,
         items: [
           ["Clinical Research", "Accelerate studies with real-world data"],
           ["Population Health", "Understand trends and improve outcomes"],
@@ -78,6 +101,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "By Industry",
+        icon: Building2,
         items: [
           ["Private Hospital Groups", "Connect facilities and improve care"],
           ["Mutual Insurers", "Better risk assessment and member outcomes"],
@@ -96,6 +120,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
     columns: [
       {
         heading: "Build",
+        icon: Code2,
         items: [
           ["Fetch API Access", "Structured clinical data endpoints"],
           ["SDKs", "Tools for rapid integration"],
@@ -103,6 +128,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Integrate",
+        icon: Plug,
         items: [
           ["EMR Integration", "Seamless connection to your systems"],
           ["Data Pipelines", "Reliable, secure data pipelines"],
@@ -111,6 +137,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Learn",
+        icon: BookOpen,
         items: [
           ["Documentation", "Guides and tutorials to get started"],
           ["API Reference", "Complete technical reference"],
@@ -129,6 +156,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
     columns: [
       {
         heading: "Learn",
+        icon: GraduationCap,
         items: [
           ["Whitepapers", "Deep dives into data sovereignty"],
           ["Compliance Guides", "POPIA, AI frameworks and more"],
@@ -136,6 +164,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Proof",
+        icon: BadgeCheck,
         items: [
           ["Case Studies", "Real-world implementations and outcomes"],
           ["Platform Demos", "Experience LumkoMDX in action"],
@@ -143,6 +172,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
       },
       {
         heading: "Insights",
+        icon: TrendingUp,
         items: [
           ["Blog", "Latest updates and announcements"],
           ["Industry Analysis", "Trends shaping the future of healthcare"],
@@ -160,6 +190,7 @@ const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: str
     columns: [
       {
         heading: "About",
+        icon: Info,
         items: [
           ["About Us", "Our mission to unlock healthcare data safely"],
           ["Careers", "Join the team building sovereign infrastructure"],
@@ -211,7 +242,10 @@ export default function Navbar() {
             <div className={`grid gap-7 ${menuPanels[openMenu].columns.length >= 4 ? "grid-cols-[1fr_1fr_1fr_1fr_280px]" : "grid-cols-[1fr_1fr_1fr_280px]"}`}>
               {menuPanels[openMenu].columns.map((col) => (
                 <div className="space-y-6 border-r border-muted-gray pr-5 last:border-r-0" key={col.heading}>
-                  <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
+                  <div className="flex items-center gap-2">
+                    <col.icon className="h-4 w-4 text-teal" />
+                    <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
+                  </div>
                   {col.items.map(([title, desc]) => (
                     <div key={title}>
                       <p className="text-sm font-semibold text-charcoal">{title}</p>

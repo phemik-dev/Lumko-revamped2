@@ -1,3 +1,18 @@
+import {
+  Users,
+  Sparkles,
+  Network,
+  ShieldCheck,
+  Database,
+  Lock,
+  Activity,
+  UserMinus,
+  ShieldOff,
+  CheckCircle,
+  Stethoscope,
+  Microscope,
+  Building2,
+} from "lucide-react";
 import Button from "./components/Button";
 import Footer from "./components/Footer";
 import HeroVisual from "./components/HeroVisual";
@@ -5,10 +20,22 @@ import Navbar from "./components/Navbar";
 import Section from "./components/Section";
 
 const modules = [
-  ["Cohort Browser", "Explore patient groups without exposing identity."],
-  ["Insight Studio", "Ask clinical questions in natural language."],
-  ["Federation Layer", "Query across systems without moving data."],
-  ["Audit & Consent", "Full traceability and compliance by design."]
+  { title: "Cohort Browser", body: "Explore patient groups without exposing identity.", icon: Users },
+  { title: "Insight Studio", body: "Ask clinical questions in natural language.", icon: Sparkles },
+  { title: "Federation Layer", body: "Query across systems without moving data.", icon: Network },
+  { title: "Audit & Consent", body: "Full traceability and compliance by design.", icon: ShieldCheck },
+];
+
+const steps = [
+  { num: "1", title: "Data stays at the source", body: "Patient identity remains inside the originating system.", icon: Database },
+  { num: "2", title: "Data is structured and pseudonymised", body: "Only necessary clinical data enters the LumkoMDX federation layer.", icon: Lock },
+  { num: "3", title: "Insight flows back", body: "Only aggregated, compliant intelligence is returned to authorised users.", icon: Activity },
+];
+
+const privacyPoints = [
+  { text: "Identity never enters the platform.", icon: UserMinus },
+  { text: "Certain breaches are structurally impossible.", icon: ShieldOff },
+  { text: "Compliance is continuous, not enforced later.", icon: CheckCircle },
 ];
 
 export default function HomePage() {
@@ -63,13 +90,11 @@ export default function HomePage() {
 
         <Section id="how-it-works" title="How LumkoMDX works" tone="soft">
           <div className="grid gap-8 md:grid-cols-3">
-            {[
-              ["1", "Data stays at the source", "Patient identity remains inside the originating system."],
-              ["2", "Data is structured and pseudonymised", "Only necessary clinical data enters the LumkoMDX federation layer."],
-              ["3", "Insight flows back", "Only aggregated, compliant intelligence is returned to authorised users."]
-            ].map(([num, title, body]) => (
+            {steps.map(({ title, body, icon: Icon }) => (
               <div className="flex gap-4" key={title}>
-                <div className="mt-1 flex h-8 w-8 shrink-0 items-center justify-center rounded-full bg-teal text-sm font-semibold text-white">{num}</div>
+                <div className="mt-1 flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-teal">
+                  <Icon className="h-5 w-5 text-white" />
+                </div>
                 <div>
                   <p className="text-lg font-semibold text-charcoal">{title}</p>
                   <p className="mt-2 text-base text-charcoal/70">{body}</p>
@@ -81,9 +106,12 @@ export default function HomePage() {
 
         <Section id="modules" title="A platform for safe, real-time clinical collaboration">
           <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
-            {modules.map(([title, body]) => (
+            {modules.map(({ title, body, icon: Icon }) => (
               <article className="rounded-xl border border-muted-gray bg-white p-6" key={title}>
-                <p className="text-2xl font-semibold text-charcoal">{title}</p>
+                <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-teal/10">
+                  <Icon className="h-5 w-5 text-teal" />
+                </div>
+                <p className="mt-4 text-2xl font-semibold text-charcoal">{title}</p>
                 <p className="mt-3 text-lg text-charcoal/70">{body}</p>
               </article>
             ))}
@@ -94,25 +122,39 @@ export default function HomePage() {
           <div className="pointer-events-none absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_85%_25%,rgba(31,138,138,0.45),transparent_34%),radial-gradient(circle_at_30%_80%,rgba(31,93,153,0.35),transparent_36%)]" />
           <div className="relative mx-auto grid w-full max-w-[1240px] gap-8 px-8 py-[120px] lg:grid-cols-[1.1fr_1fr_1fr_1fr]">
             <h3 className="text-[42px] leading-tight font-semibold text-white">Privacy is not a feature. It is a property of the system.</h3>
-            {[
-              "Identity never enters the platform.",
-              "Certain breaches are structurally impossible.",
-              "Compliance is continuous, not enforced later."
-            ].map((line) => (
-              <p className="self-center text-xl text-white/90" key={line}>{line}</p>
+            {privacyPoints.map(({ text, icon: Icon }) => (
+              <div className="flex items-start gap-4 self-center" key={text}>
+                <div className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg bg-white/10">
+                  <Icon className="h-5 w-5 text-teal" />
+                </div>
+                <p className="text-xl text-white/90">{text}</p>
+              </div>
             ))}
           </div>
         </section>
 
         <Section id="roles" title="Built for every role across the healthcare ecosystem" tone="soft">
           <div className="grid gap-8 lg:grid-cols-[1fr_1fr]">
-            <div className="rounded-xl border border-muted-gray bg-white p-8">
-              <p className="text-lg font-semibold text-blue">Clinicians</p>
-              <ul className="mt-5 space-y-4 text-lg text-charcoal/80">
-                <li>Identify cohorts faster</li>
-                <li>Collaborate across systems</li>
-                <li>Make decisions with broader insight</li>
-              </ul>
+            <div className="space-y-6">
+              {[
+                { role: "Clinicians", icon: Stethoscope, items: ["Identify cohorts faster", "Collaborate across systems", "Make decisions with broader insight"] },
+                { role: "Researchers", icon: Microscope, items: ["Compliant access to population insights", "Real-world data for clinical studies", "Federated queries across institutions"] },
+                { role: "Executives", icon: Building2, items: ["System-wide visibility without risk", "Data-driven strategic decisions", "Compliance without operational burden"] },
+              ].map(({ role, icon: Icon, items }) => (
+                <div className="rounded-xl border border-muted-gray bg-white p-6" key={role}>
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-9 w-9 items-center justify-center rounded-lg bg-blue/10">
+                      <Icon className="h-5 w-5 text-blue" />
+                    </div>
+                    <p className="text-lg font-semibold text-blue">{role}</p>
+                  </div>
+                  <ul className="mt-4 space-y-2 text-base text-charcoal/80">
+                    {items.map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
             </div>
             <div className="rounded-xl border border-muted-gray bg-white p-8">
               <p className="text-4xl font-semibold text-charcoal">See your data — safely — in minutes.</p>
