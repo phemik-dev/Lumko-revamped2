@@ -9,7 +9,7 @@ const config: Config = {
         white: "#ffffff",
         "soft-gray": "#f4f6f8",
         "muted-gray": "#dce3ea",
-        gold: "#b68a2f",
+        gold: "#D4A63A",
         blue: "#1f5d99",
         teal: "#1b8080"
       },

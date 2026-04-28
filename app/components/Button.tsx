@@ -10,9 +10,9 @@ export default function Button({ children, href, variant = "secondary" }: Button
   const base = "inline-flex items-center gap-2 rounded-md px-5 py-3 text-sm font-semibold transition-colors";
 
   const styleByVariant = {
-    primary: "bg-gold text-charcoal hover:bg-[#d6aa2d]",
+    primary: "bg-gold text-charcoal hover:bg-[#BE912A]",
     secondary: "border border-blue/30 bg-white text-blue hover:border-blue hover:bg-blue/5",
-    link: "px-0 py-0 text-blue hover:text-teal"
+    link: "px-0 py-0 text-blue hover:text-blue/70"
   };
 
   return (

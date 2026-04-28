@@ -68,11 +68,11 @@ const bottomLinks: FooterLink[] = [
 export default function Footer() {
   return (
     <footer className="border-t border-muted-gray bg-white">
-      <div className="mx-auto grid w-full max-w-[1240px] gap-10 px-6 py-14 md:grid-cols-[220px_1fr]">
+      <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-8 py-14 md:grid-cols-[220px_1fr]">
         <div>
           <Link href="/" className="text-2xl font-semibold tracking-tight text-charcoal">
             <span>Lumko</span>
-            <span className="text-teal">MDX</span>
+            <span className="text-blue">MDX</span>
           </Link>
           <p className="mt-6 text-sm text-charcoal/70">
             © 2026 LumkoMDX. All rights reserved.
@@ -82,14 +82,14 @@ export default function Footer() {
           {columns.map((col) => (
             <div key={col.heading}>
               <div className="flex items-center gap-2">
-                <col.icon className="h-4 w-4 text-teal" />
+                <col.icon className="h-4 w-4 text-blue" />
                 <p className="text-sm font-semibold text-charcoal">{col.heading}</p>
               </div>
               <ul className="mt-3 space-y-2 text-sm text-charcoal/70">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      className="transition-colors hover:text-teal"
+                      className="transition-colors hover:text-blue"
                       href={link.href}
                     >
                       {link.label}
@@ -102,10 +102,10 @@ export default function Footer() {
         </div>
       </div>
       <div className="border-t border-muted-gray py-4">
-        <div className="mx-auto flex w-full max-w-[1240px] justify-end gap-10 px-6 text-sm text-charcoal/70">
+        <div className="mx-auto flex w-full max-w-[1440px] justify-end gap-10 px-8 text-sm text-charcoal/70">
           {bottomLinks.map((link) => (
             <Link
-              className="transition-colors hover:text-teal"
+              className="transition-colors hover:text-blue"
               key={link.label}
               href={link.href}
             >

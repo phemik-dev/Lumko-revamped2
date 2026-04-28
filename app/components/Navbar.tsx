@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import {
   Layout,
   Puzzle,
@@ -212,11 +213,11 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-muted-gray bg-white/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-6 py-5">
-        <p className="text-2xl leading-none font-semibold tracking-tight text-charcoal">
+      <div className="mx-auto flex w-full max-w-[1440px] items-center justify-between px-8 py-5">
+        <Link href="/" className="text-2xl leading-none font-semibold tracking-tight text-charcoal">
           <span className="text-charcoal">Lumko</span>
-          <span className="text-teal">MDX</span>
-        </p>
+          <span className="text-blue">MDX</span>
+        </Link>
         <nav className="hidden items-center gap-10 lg:flex">
           {links.map((link) => (
             <button
@@ -238,7 +239,7 @@ export default function Navbar() {
 
       {openMenu && (
         <div className="hidden border-t border-muted-gray bg-white lg:block" onMouseLeave={() => setOpenMenu(null)}>
-          <div className="mx-auto w-full max-w-[1240px] px-6 py-6">
+          <div className="mx-auto w-full max-w-[1440px] px-8 py-6">
             <div className={`grid gap-7 ${menuPanels[openMenu].columns.length >= 4 ? "grid-cols-[1fr_1fr_1fr_1fr_280px]" : "grid-cols-[1fr_1fr_1fr_280px]"}`}>
               {menuPanels[openMenu].columns.map((col) => (
                 <div className="space-y-6 border-r border-muted-gray pr-5 last:border-r-0" key={col.heading}>
