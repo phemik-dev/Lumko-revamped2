@@ -44,15 +44,15 @@ export default function HomePage() {
       <Navbar />
       <main>
         <section className="border-b border-muted-gray bg-white">
-          <div className="mx-auto grid w-full max-w-[1240px] gap-10 px-8 py-[120px] lg:grid-cols-2 lg:items-center">
+          <div className="mx-auto grid w-full max-w-[1240px] gap-12 px-8 py-[140px] lg:grid-cols-2 lg:items-center">
             <div>
-              <h1 className="text-[56px] leading-[1.08] font-semibold tracking-tight text-charcoal">
+              <h1 className="text-[56px] leading-[1.18] font-medium tracking-tight text-charcoal">
                 The infrastructure that <span className="text-teal">unlocks the power</span> of healthcare data while <span className="text-teal">protecting</span> what matters most
               </h1>
-              <p className="mt-8 max-w-xl text-xl leading-relaxed text-charcoal/72">
+              <p className="mt-10 max-w-xl text-xl leading-relaxed text-charcoal/72">
                 Use healthcare data across systems while patient identity never leaves its source.
               </p>
-              <div className="mt-10 flex flex-wrap items-center gap-5">
+              <div className="mt-12 flex flex-wrap items-center gap-5">
                 <Button href="#demo" variant="primary">
                   Request demo
                 </Button>
