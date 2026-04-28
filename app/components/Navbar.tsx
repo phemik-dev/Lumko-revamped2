@@ -13,143 +13,176 @@ const links: { key: MenuKey; label: string }[] = [
   { key: "company", label: "Company" }
 ];
 
-const primaryColumns = [
-  {
-    heading: "Platform",
-    items: [
-      ["Overview", "Why LumkoMDX is built for this moment"],
-      ["Why it exists", "The problem of fragmented, risk-heavy data"]
-    ]
-  },
-  {
-    heading: "Core Modules",
-    items: [
-      ["Cohort Browser", "Explore patient groups without exposing identity"],
-      ["Insight Studio", "Ask clinical questions and get answers"],
-      ["Federation", "Query across facilities without moving data"],
-      ["Audit & Consent", "Full traceability and compliance by design"]
-    ]
-  },
-  {
-    heading: "Architecture",
-    items: [
-      ["Three-Boundary Model", "Identity, orchestration, and insight—separated by design"],
-      ["Data Flow", "How data moves without exposure"],
-      ["Pseudonymisation", "Privacy preserved structurally, not procedurally"]
-    ]
-  },
-  {
-    heading: "Trust & Compliance",
-    items: [
-      ["POPIA Compliance", "Built for South African regulation"],
-      ["Security Model", "Zero-trust, never-identity architecture"],
-      ["Standards", "FHIR, HL7, OpenEHR alignment"]
-    ]
-  }
-];
+type PanelColumn = { heading: string; items: string[][] };
 
-const lowerRows = [
-  {
-    cols: [
+const menuPanels: Record<MenuKey, { columns: PanelColumn[]; cta: { headline: string; body: string; button: string; bg: string } }> = {
+  product: {
+    columns: [
+      {
+        heading: "Platform",
+        items: [
+          ["Overview", "Why LumkoMDX is built for this moment"],
+          ["Why it exists", "The problem of fragmented, risk-heavy data"],
+        ],
+      },
+      {
+        heading: "Core Modules",
+        items: [
+          ["Cohort Browser", "Explore patient groups without exposing identity"],
+          ["Insight Studio", "Ask clinical questions and get answers"],
+          ["Federation", "Query across facilities without moving data"],
+          ["Audit & Consent", "Full traceability and compliance by design"],
+        ],
+      },
+      {
+        heading: "Architecture",
+        items: [
+          ["Three-Boundary Model", "Identity, orchestration, and insight—separated by design"],
+          ["Data Flow", "How data moves without exposure"],
+          ["Pseudonymisation", "Privacy preserved structurally, not procedurally"],
+        ],
+      },
+      {
+        heading: "Trust & Compliance",
+        items: [
+          ["POPIA Compliance", "Built for South African regulation"],
+          ["Security Model", "Zero-trust, never-identity architecture"],
+          ["Standards", "FHIR, HL7, OpenEHR alignment"],
+        ],
+      },
+    ],
+    cta: {
+      headline: "See the platform in action.",
+      body: "Explore a sample clinical cohort in minutes.",
+      button: "Request demo",
+      bg: "bg-[#eaf4f8]",
+    },
+  },
+  solutions: {
+    columns: [
       {
         heading: "By Role",
         items: [
           ["Clinicians", "Faster cohort discovery, safer collaboration"],
           ["Researchers", "Compliant access to population insights"],
-          ["Executives", "System-wide visibility without risk"]
-        ]
+          ["Executives", "System-wide visibility without risk"],
+        ],
       },
       {
         heading: "By Use Case",
         items: [
           ["Clinical Research", "Accelerate studies with real-world data"],
           ["Population Health", "Understand trends and improve outcomes"],
-          ["Claims & Insurance", "Make accurate, data-driven decisions"]
-        ]
+          ["Claims & Insurance", "Make accurate, data-driven decisions"],
+        ],
       },
       {
         heading: "By Industry",
         items: [
           ["Private Hospital Groups", "Connect facilities and improve care"],
           ["Mutual Insurers", "Better risk assessment and member outcomes"],
-          ["Research Institutions", "Secure data for breakthrough research"]
-        ]
-      }
+          ["Research Institutions", "Secure data for breakthrough research"],
+        ],
+      },
     ],
-    cta: ["Solve real problems with real data.", "Request demo"]
+    cta: {
+      headline: "Solve real problems with real data.",
+      body: "Request a walkthrough tailored to your role.",
+      button: "Request demo",
+      bg: "bg-[#f8f1df]",
+    },
   },
-  {
-    cols: [
+  developers: {
+    columns: [
       {
         heading: "Build",
         items: [
           ["Fetch API Access", "Structured clinical data endpoints"],
-          ["SDKs", "Tools for rapid integration"]
-        ]
+          ["SDKs", "Tools for rapid integration"],
+        ],
       },
       {
         heading: "Integrate",
         items: [
           ["EMR Integration", "Seamless connection to your systems"],
           ["Data Pipelines", "Reliable, secure data pipelines"],
-          ["Federation Setup", "Easy-to-deploy federation layer"]
-        ]
+          ["Federation Setup", "Easy-to-deploy federation layer"],
+        ],
       },
       {
         heading: "Learn",
         items: [
           ["Documentation", "Guides and tutorials to get started"],
           ["API Reference", "Complete technical reference"],
-          ["Architecture Guides", "Deep dives into our architecture"]
-        ]
-      }
+          ["Architecture Guides", "Deep dives into our architecture"],
+        ],
+      },
     ],
-    cta: ["Start building with confidence.", "Explore docs"]
+    cta: {
+      headline: "Start building with confidence.",
+      body: "Full API access and SDKs ready to go.",
+      button: "Explore docs",
+      bg: "bg-[#eaf4f8]",
+    },
   },
-  {
-    cols: [
+  resources: {
+    columns: [
       {
         heading: "Learn",
         items: [
           ["Whitepapers", "Deep dives into data sovereignty"],
-          ["Compliance Guides", "POPIA, AI frameworks and more"]
-        ]
+          ["Compliance Guides", "POPIA, AI frameworks and more"],
+        ],
       },
       {
         heading: "Proof",
         items: [
           ["Case Studies", "Real-world implementations and outcomes"],
-          ["Platform Demos", "Experience LumkoMDX in action"]
-        ]
+          ["Platform Demos", "Experience LumkoMDX in action"],
+        ],
       },
       {
         heading: "Insights",
         items: [
           ["Blog", "Latest updates and announcements"],
-          ["Industry Analysis", "Trends shaping the future of healthcare"]
-        ]
-      }
+          ["Industry Analysis", "Trends shaping the future of healthcare"],
+        ],
+      },
     ],
-    cta: ["Download the report", "Get the report"]
-  }
-];
+    cta: {
+      headline: "Download the report.",
+      body: "Deep dives into data sovereignty and compliance.",
+      button: "Get the report",
+      bg: "bg-[#f8f1df]",
+    },
+  },
+  company: {
+    columns: [
+      {
+        heading: "About",
+        items: [
+          ["About Us", "Our mission to unlock healthcare data safely"],
+          ["Careers", "Join the team building sovereign infrastructure"],
+          ["Contact", "Get in touch with our team"],
+        ],
+      },
+    ],
+    cta: {
+      headline: "Let\u2019s start a conversation.",
+      body: "Whether you\u2019re exploring or ready to deploy.",
+      button: "Contact us",
+      bg: "bg-[#eaf4f8]",
+    },
+  },
+};
 
 export default function Navbar() {
   const [openMenu, setOpenMenu] = useState<MenuKey | null>(null);
 
   return (
     <header className="sticky top-0 z-50 border-b border-muted-gray bg-white/95 backdrop-blur">
-      <div className="mx-auto flex w-full max-w-[1380px] items-center justify-between px-8 py-4">
-        <p className="text-[24px] leading-none font-semibold tracking-tight text-charcoal sm:text-[22px]">
-          <span className="text-charcoal">Lumko</span>
-          <span className="text-teal">MDX</span>
-        </p>
-        <nav className="hidden items-center gap-12 lg:flex">
-          {links.map((link) => (
-            <button
-              className="flex items-center gap-2 text-xs font-medium text-charcoal"
       <div className="mx-auto flex w-full max-w-[1240px] items-center justify-between px-6 py-5">
-        <p className="text-[48px] leading-none font-semibold tracking-tight text-charcoal sm:text-[42px]">
+        <p className="text-2xl leading-none font-semibold tracking-tight text-charcoal">
           <span className="text-charcoal">Lumko</span>
           <span className="text-teal">MDX</span>
         </p>
@@ -174,64 +207,26 @@ export default function Navbar() {
 
       {openMenu && (
         <div className="hidden border-t border-muted-gray bg-white lg:block" onMouseLeave={() => setOpenMenu(null)}>
-          <div className="mx-auto w-full max-w-[1380px] px-8 py-8">
-            <div className="grid grid-cols-[1fr_1fr_1fr_1fr_280px] gap-10 border-b border-muted-gray pb-7">
           <div className="mx-auto w-full max-w-[1240px] px-6 py-6">
-            <div className="grid grid-cols-[1fr_1fr_1fr_1fr_280px] gap-7 border-b border-muted-gray pb-7">
-              {primaryColumns.map((col) => (
+            <div className={`grid gap-7 ${menuPanels[openMenu].columns.length >= 4 ? "grid-cols-[1fr_1fr_1fr_1fr_280px]" : "grid-cols-[1fr_1fr_1fr_280px]"}`}>
+              {menuPanels[openMenu].columns.map((col) => (
                 <div className="space-y-6 border-r border-muted-gray pr-5 last:border-r-0" key={col.heading}>
                   <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
                   {col.items.map(([title, desc]) => (
                     <div key={title}>
-                      <p className="text-xs font-medium text-charcoal">{title}</p>
-                      <p className="mt-1 text-xs text-charcoal/70">{desc}</p>
                       <p className="text-sm font-semibold text-charcoal">{title}</p>
                       <p className="mt-1 text-sm text-charcoal/70">{desc}</p>
                     </div>
                   ))}
                 </div>
               ))}
-              <div className="rounded-lg bg-[#eaf4f8] p-7">
-                <p className="text-[20px] font-medium leading-tight text-charcoal">See the platform in action.</p>
-                <p className="mt-4 text-xs text-charcoal/75">Explore a sample clinical cohort in minutes.</p>
-                <p className="text-2xl font-medium leading-tight text-charcoal">See the platform in action.</p>
-                <p className="mt-4 text-sm text-charcoal/75">Explore a sample clinical cohort in minutes.</p>
+              <div className={`rounded-lg p-7 ${menuPanels[openMenu].cta.bg}`}>
+                <p className="text-2xl font-medium leading-tight text-charcoal">{menuPanels[openMenu].cta.headline}</p>
+                <p className="mt-4 text-sm text-charcoal/75">{menuPanels[openMenu].cta.body}</p>
                 <div className="mt-6">
-                  <Button href="#demo">Request demo →</Button>
+                  <Button href="#demo">{menuPanels[openMenu].cta.button} →</Button>
                 </div>
               </div>
-            </div>
-
-            <div className="space-y-8 pt-8">
-              {lowerRows.map((row) => (
-                <div className="grid grid-cols-[1fr_1fr_1fr_300px] gap-10" key={row.cta[0]}>
-            <div className="space-y-6 pt-7">
-              {lowerRows.map((row) => (
-                <div className="grid grid-cols-[1fr_1fr_1fr_280px] gap-7" key={row.cta[0]}>
-                  {row.cols.map((col) => (
-                    <div className="space-y-4 border-r border-muted-gray pr-5 last:border-r-0" key={col.heading}>
-                      <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
-                      {col.items.map(([title, desc]) => (
-                        <div key={title}>
-                          <p className="text-xs font-medium text-charcoal">{title}</p>
-                          <p className="mt-1 text-xs text-charcoal/70">{desc}</p>
-                          <p className="text-sm font-semibold text-charcoal">{title}</p>
-                          <p className="mt-1 text-sm text-charcoal/70">{desc}</p>
-                        </div>
-                      ))}
-                    </div>
-                  ))}
-                  <div className="rounded-lg bg-[#f8f1df] p-7">
-                    <p className="text-[20px] font-medium leading-tight text-charcoal">{row.cta[0]}</p>
-                    <p className="text-2xl font-medium leading-tight text-charcoal">{row.cta[0]}</p>
-                    <div className="mt-6">
-                      <Button href="#demo" variant="primary">
-                        {row.cta[1]} →
-                      </Button>
-                    </div>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
