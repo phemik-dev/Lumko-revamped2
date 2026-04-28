@@ -218,23 +218,25 @@ export default function Navbar() {
           <span className="text-charcoal">Lumko</span>
           <span className="text-blue">MDX</span>
         </Link>
-        <nav className="hidden items-center gap-10 lg:flex">
-          {links.map((link) => (
-            <button
-              className="flex items-center gap-2 text-sm font-semibold text-charcoal"
-              key={link.key}
-              onClick={() => setOpenMenu(openMenu === link.key ? null : link.key)}
-              onMouseEnter={() => setOpenMenu(link.key)}
-              type="button"
-            >
-              {link.label}
-              <span className="text-xs text-charcoal/70">▾</span>
-            </button>
-          ))}
-        </nav>
-        <Button href="#demo" variant="primary">
-          Request demo
-        </Button>
+        <div className="hidden items-center gap-10 lg:flex">
+          <nav className="flex items-center gap-8">
+            {links.map((link) => (
+              <button
+                className="flex items-center gap-2 text-sm font-semibold text-charcoal"
+                key={link.key}
+                onClick={() => setOpenMenu(openMenu === link.key ? null : link.key)}
+                onMouseEnter={() => setOpenMenu(link.key)}
+                type="button"
+              >
+                {link.label}
+                <span className="text-xs text-charcoal/70">▾</span>
+              </button>
+            ))}
+          </nav>
+          <Button href="#demo" variant="primary">
+            Request demo
+          </Button>
+        </div>
       </div>
 
       {openMenu && (
@@ -244,7 +246,7 @@ export default function Navbar() {
               {menuPanels[openMenu].columns.map((col) => (
                 <div className="space-y-6 border-r border-muted-gray pr-5 last:border-r-0" key={col.heading}>
                   <div className="flex items-center gap-2">
-                    <col.icon className="h-4 w-4 text-teal" />
+                    <col.icon className="h-4 w-4 text-blue/70" />
                     <h3 className="text-base font-semibold text-charcoal">{col.heading}</h3>
                   </div>
                   {col.items.map(([title, desc]) => (

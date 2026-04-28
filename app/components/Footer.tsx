@@ -1,19 +1,10 @@
 import Link from "next/link";
-import {
-  Package,
-  Lightbulb,
-  Code2,
-  BookOpen,
-  Building2,
-  type LucideIcon,
-} from "lucide-react";
 
 type FooterLink = { label: string; href: string };
 
-const columns: { heading: string; icon: LucideIcon; links: FooterLink[] }[] = [
+const columns: { heading: string; links: FooterLink[] }[] = [
   {
     heading: "Product",
-    icon: Package,
     links: [
       { label: "Platform Overview", href: "/#how-it-works" },
       { label: "Core Modules", href: "/#modules" },
@@ -23,7 +14,6 @@ const columns: { heading: string; icon: LucideIcon; links: FooterLink[] }[] = [
   },
   {
     heading: "Solutions",
-    icon: Lightbulb,
     links: [
       { label: "By Role", href: "/#roles" },
       { label: "By Use Case", href: "/#roles" },
@@ -32,7 +22,6 @@ const columns: { heading: string; icon: LucideIcon; links: FooterLink[] }[] = [
   },
   {
     heading: "Developers",
-    icon: Code2,
     links: [
       { label: "APIs", href: "/#modules" },
       { label: "SDKs", href: "/#modules" },
@@ -41,7 +30,6 @@ const columns: { heading: string; icon: LucideIcon; links: FooterLink[] }[] = [
   },
   {
     heading: "Resources",
-    icon: BookOpen,
     links: [
       { label: "Whitepapers", href: "/#privacy" },
       { label: "Case Studies", href: "/#roles" },
@@ -50,7 +38,6 @@ const columns: { heading: string; icon: LucideIcon; links: FooterLink[] }[] = [
   },
   {
     heading: "Company",
-    icon: Building2,
     links: [
       { label: "About Us", href: "/#demo" },
       { label: "Careers", href: "/#demo" },
@@ -67,29 +54,27 @@ const bottomLinks: FooterLink[] = [
 
 export default function Footer() {
   return (
-    <footer className="border-t border-muted-gray bg-white">
+    <footer className="border-t border-white/10 bg-[#061935]">
       <div className="mx-auto grid w-full max-w-[1440px] gap-10 px-8 py-14 md:grid-cols-[220px_1fr]">
         <div>
-          <Link href="/" className="text-2xl font-semibold tracking-tight text-charcoal">
+          <Link href="/" className="text-2xl font-semibold tracking-tight text-white">
             <span>Lumko</span>
             <span className="text-blue">MDX</span>
           </Link>
-          <p className="mt-6 text-sm text-charcoal/70">
+          <p className="mt-3 text-sm text-white/70">Sovereign by design</p>
+          <p className="mt-6 text-sm text-white/40">
             © 2026 LumkoMDX. All rights reserved.
           </p>
         </div>
         <div className="grid gap-8 sm:grid-cols-3 lg:grid-cols-5">
           {columns.map((col) => (
             <div key={col.heading}>
-              <div className="flex items-center gap-2">
-                <col.icon className="h-4 w-4 text-blue" />
-                <p className="text-sm font-semibold text-charcoal">{col.heading}</p>
-              </div>
-              <ul className="mt-3 space-y-2 text-sm text-charcoal/70">
+              <p className="text-sm font-semibold text-white">{col.heading}</p>
+              <ul className="mt-3 space-y-2 text-sm text-white/60">
                 {col.links.map((link) => (
                   <li key={link.label}>
                     <Link
-                      className="transition-colors hover:text-blue"
+                      className="transition-colors hover:text-white"
                       href={link.href}
                     >
                       {link.label}
@@ -101,11 +86,11 @@ export default function Footer() {
           ))}
         </div>
       </div>
-      <div className="border-t border-muted-gray py-4">
-        <div className="mx-auto flex w-full max-w-[1440px] justify-end gap-10 px-8 text-sm text-charcoal/70">
+      <div className="border-t border-white/10 py-4">
+        <div className="mx-auto flex w-full max-w-[1440px] justify-end gap-10 px-8 text-sm text-white/40">
           {bottomLinks.map((link) => (
             <Link
-              className="transition-colors hover:text-blue"
+              className="transition-colors hover:text-white/70"
               key={link.label}
               href={link.href}
             >

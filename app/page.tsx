@@ -41,7 +41,7 @@ export default function HomePage() {
           className="border-b border-muted-gray"
           style={{ background: "linear-gradient(to right, #FFFFFF 0%, #F6F8FB 60%)" }}
         >
-          <div className="mx-auto grid w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-8 py-[120px] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="mx-auto grid min-h-[calc(100vh-88px)] w-full max-w-[1440px] grid-cols-1 items-center gap-16 px-8 py-16 lg:grid-cols-[0.9fr_1.1fr]">
             <div className="max-w-[620px]">
               <h1 className="text-[56px] leading-[1.18] font-medium tracking-tight text-charcoal">
                 Use healthcare data across systems while patient identity never leaves its source
@@ -103,7 +103,7 @@ export default function HomePage() {
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
             {modules.map(({ title, body, icon: Icon }) => (
               <article className="rounded-xl border border-transparent bg-soft-gray p-7" key={title}>
-                <Icon className="h-5 w-5 text-blue" />
+                <Icon className="h-4 w-4 text-blue/70" />
                 <p className="mt-5 text-xl font-semibold text-charcoal">{title}</p>
                 <p className="mt-2 text-base text-charcoal/70">{body}</p>
               </article>
